@@ -26,8 +26,7 @@ export default function Home() {
           <h2 className="u-text u-text-1 myBB" style={{fontFamily: '"Manrope", sans-serif',fontWeight: "bolder",marginBottom: "1em",fontSize: "3em"}}>About Company</h2>
           <p className="u-text u-text-2" style={{fontFamily: 'Frank Ruhl Libre, "PT Serif", "Noto Serif", "Noto Serif JP", "Noto Serif KR", "Noto Serif SC", "Noto Serif TC", ui-serif, Georgia, Cambria, Times New Roman, Times, serif',fontSize: "1.2rem",lineHeight: "2rem",fontWeight:"400", color:"#222"}}>
             {" "}
-            Tima Beauty Cosmetics is a skincare brand dedicated to providing high-quality, nourishing creams that enhance your natural beauty and rejuvenate your skin.
-          </p>
+          Tima Beauty Cosmetics is a skincare brand devoted to delivering premium, nourishing body oils that hydrate, restore, and enhance your natural glow. Our products are crafted to leave your skin feeling soft, radiant, and revitalized. </p>
  
         </div>
       </div>

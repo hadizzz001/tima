@@ -19,7 +19,7 @@ const SLoader = ({ onComplete }) => {
   if (!isVisible) return null; // Hide component after animation
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#ebebd3] z-[9999]">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#eeeeee] z-[9999]">
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}

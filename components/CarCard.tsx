@@ -29,26 +29,14 @@ const CarCard = ({ temp }: CarCardProps) => {
   )}
 
   {/* Default Image */}
-  <motion.img
+  <img
     src={img[0]}
-    className="absolute w-full h-full object-cover group-hover:opacity-0"
+    className="absolute w-full h-full object-cover "
     style={{ borderRadius: "20px" }}
-    initial={{ opacity: 1 }}
-    whileHover={{ opacity: 0 }}
-    whileTap={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
+
   />
 
-  {/* Hover Image */}
-  <motion.img
-    src={img[1]}
-    className="absolute w-full h-full object-cover"
-    style={{ borderRadius: "20px" }}
-    initial={{ opacity: 0 }}
-    whileHover={{ opacity: 1 }}
-    whileTap={{ opacity: 1 }}
-    transition={{ duration: 0.5 }}
-  />
+ 
 </div>
 
                                         </div>

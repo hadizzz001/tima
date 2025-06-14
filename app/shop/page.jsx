@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 
@@ -10,17 +10,6 @@ const Body = () => {
   const [isActive1, setIsActive1] = useState(true);
   const [checkboxesData, setCheckboxesData] = useState([]);
   const [checkedCategories, setCheckedCategories] = useState([]); // Store selected category IDs
-  const [touchedIndex, setTouchedIndex] = useState(null); // Track which image is touched
-
-  const handleTouchStart = (index) => {
-    setTouchedIndex(index);
-  };
-
-  const handleTouchEnd = () => {
-    setTimeout(() => setTouchedIndex(null), 2000); // Reset after 2s
-  };
-
-
 
 
 
@@ -124,10 +113,10 @@ const Body = () => {
         : [...prev, categoryId] // Check
     );
   };
- 
 
 
- 
+
+
   return (
 
 
@@ -284,71 +273,67 @@ const Body = () => {
 
 
 
-{allTemp && allTemp.length > 0 ? (
-        allTemp.map((item, index) => (
-          <div
-            key={item._id}
-            className="br_grid br_grid-cols-1 supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid]"
-          >
-            <div
-              className={`image-container ${
-                touchedIndex === index ? "touch-active" : ""
-              }`}
-              onTouchStart={() => handleTouchStart(index)}
-              onTouchEnd={handleTouchEnd}
-            >
-                {parseInt(item.stock) === 0 && (
-    <div className="absolute inset-0 bg-gray-600 bg-opacity-70 text-white flex items-center justify-center text-lg font-bold z-10">
-      Out of Stock
-    </div>
-  )}
-              {/* Default Image */}
-              <img className="default-img" src={item.img[0]} alt="Default" />
-
-              {/* Hover Image */}
-              <img className="hover-img" src={item.img[1]} alt="Hover" />
-            </div>
-
-            <div className="Layout br_contents">
-              <span className="br_contents br_edition-">
-                <div className="br_grid br_grid-cols-1 br_grid-rows-[auto_auto_1fr_auto] supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid] initial:br_text-white apex:br_bg-[#4e4e4e] apex:br_text-white br_gap-2 br_pb-3 br_group/tile br_relative">
-                  <div
-                    style={{ textAlign: "center" }}
-                    className="initial:br_row-span-1 br_col-start-1 br_row-start-2 br_px-3 group-[.centered]/tile:br_justify-center group-[.centered]/tile:br_text-center"
-                  >
-                    <h3 className="myNewC br_text-base-sans-spaced br_line-clamp-2 sm:br_line-clamp-none edition:br_text-grey-500 edition:br_hidden first:edition:br_inline edition:before:br_content-['_–_'] apex:edition:br_text-grey-300">
-                      <a
-                        href={`/product?id=${item._id}&&imgg=${item.img[0]}`}
-                        className="br_text-current br_no-underline"
-                        id="anchorNew"
+                {allTemp && allTemp.length > 0 ? (
+                  allTemp.map((item, index) => (
+                    <div
+                      key={item._id}
+                      className="br_grid br_grid-cols-1 supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid]"
+                    >
+                      <a href={`/product?id=${item._id}&&imgg=${item.img[0]}`}  >
+                      <div
+                        className={`image-container `}
                       >
-                        {item.title}
-                        <br />
-                        {item.category}
-                        <span
-                          className="br_absolute br_inset-0 br_z-10"
-                          aria-hidden="true"
-                        />
+                        {parseInt(item.stock) === 0 && (
+                          <div className="absolute inset-0 bg-gray-600 bg-opacity-70 text-white flex items-center justify-center text-lg font-bold z-10">
+                            Out of Stock
+                          </div>
+                        )}
+                        {/* Default Image */}
+                        <img className="default-img" src={item.img[0]} alt="Default" />
+
+                      </div>
+
+                      <div className="Layout br_contents">
+                        <span className="br_contents br_edition-">
+                          <div className="br_grid br_grid-cols-1 br_grid-rows-[auto_auto_1fr_auto] supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid] initial:br_text-white apex:br_bg-[#4e4e4e] apex:br_text-white br_gap-2 br_pb-3 br_group/tile br_relative">
+                            <div
+                              style={{ textAlign: "center" }}
+                              className="initial:br_row-span-1 br_col-start-1 br_row-start-2 br_px-3 group-[.centered]/tile:br_justify-center group-[.centered]/tile:br_text-center"
+                            >
+                              <h3 className="myNewC br_text-base-sans-spaced br_line-clamp-2 sm:br_line-clamp-none edition:br_text-grey-500 edition:br_hidden first:edition:br_inline edition:before:br_content-['_–_'] apex:edition:br_text-grey-300">
+                                <a
+                                  href={`/product?id=${item._id}&&imgg=${item.img[0]}`}
+                                  className="br_text-current br_no-underline"
+                                  id="anchorNew"
+                                >
+                                  {item.title}
+                                  <br />
+                                  {item.category}
+                                  <span
+                                    className="br_absolute br_inset-0 br_z-10"
+                                    aria-hidden="true"
+                                  />
+                                </a>
+                              </h3>
+                              <div className="price-container br_inline-flex br_flex-wrap br_gap-x-2 br_items-baseline apex:br_text-white group-[.centered]/tile:br_justify-center">
+                                <span className="old-price br_text-gray-500 br_line-through myBB">
+                                  ${item.price}
+                                </span>
+                                <span className="new-price myBB">${item.discount}</span>
+                              </div>
+                              <br />
+                            </div>
+                          </div>
+                        </span>
+                      </div>
                       </a>
-                    </h3>
-                    <div className="price-container br_inline-flex br_flex-wrap br_gap-x-2 br_items-baseline apex:br_text-white group-[.centered]/tile:br_justify-center">
-                      <span className="old-price br_text-gray-500 br_line-through myBB">
-                        ${item.price}
-                      </span>
-                      <span className="new-price myBB">${item.discount}</span>
                     </div>
-                    <br />
+                  ))
+                ) : (
+                  <div className="home___error-container">
+                    <h2 className="text-black text-xl dont-bold">...</h2>
                   </div>
-                </div>
-              </span>
-            </div>
-          </div>
-        ))
-      ) : (
-        <div className="home___error-container">
-          <h2 className="text-black text-xl dont-bold">...</h2>
-        </div>
-      )}
+                )}
 
 
 

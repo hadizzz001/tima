@@ -9,15 +9,7 @@ interface CarCardProps {
 
 const CarCard5 = ({ temp }: CarCardProps) => {
     const { _id, title, price, discount, img, category, stock } = temp;
-    const [isTouched, setIsTouched] = useState(false);
-
-    const handleTouchStart = () => {
-        setIsTouched(true);
-    };
-
-    const handleTouchEnd = () => {
-        setTimeout(() => setIsTouched(false), 2000); // Reset after 2s
-    };
+ 
 
     return (
         <a href={`/product?id=${_id}`}>
@@ -29,9 +21,8 @@ const CarCard5 = ({ temp }: CarCardProps) => {
                                 <div className="initial:br_row-span-1 br_col-start-1 br_row-start-1 br_relative">
                                     <div className="br_aspect-[1/1] sm:br_aspect-square">
                                         <div 
-                                            className={`br_w-full br_h-full br_relative br_flex br_items-center br_justify-center image-container ${isTouched ? "touch-active" : ""}`} 
-                                            onTouchStart={handleTouchStart} 
-                                            onTouchEnd={handleTouchEnd}
+                                            className={`br_w-full br_h-full br_relative br_flex br_items-center br_justify-center image-container `} 
+                                           
                                         >
                                              
 {parseInt(stock) === 0 && (
@@ -50,18 +41,7 @@ const CarCard5 = ({ temp }: CarCardProps) => {
                                                     objectFit: "cover"
                                                 }}
                                             />
-
-                                            {/* Hover Image */}
-                                            <img
-                                                src={img[1]}
-                                                alt="Hover"
-                                                className="hover-img"
-                                                style={{
-                                                    borderRadius: "20px", 
-                                                    height: "150px",
-                                                    objectFit: "cover"
-                                                }}
-                                            />
+ 
                                         </div>
                                     </div>
                                 </div>

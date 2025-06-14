@@ -47,7 +47,7 @@ const ResponsiveVideo = () => {
             viewport={{ once: true }}
           >
             {renderMedia(categories[0])}
-            <h3 className="pic-tagline" style={{ bottom: "15%" }}>
+            <h3 className="pic-tagline" >
               {categories[0].name}
             </h3>
             <button
@@ -70,7 +70,7 @@ const ResponsiveVideo = () => {
               viewport={{ once: true }}
             >
               {renderMedia(category)}
-              <h3 className="pic-tagline">{category.name}</h3>
+              <h3 className="pic-tagline" >{category.name}</h3>
               <button
                 onClick={() => router.push("/search?cat=" + category.name)}
                 className="pic-button-splash"

@@ -146,7 +146,7 @@ const Body = () => {
         <Box />  
         
         <Carousel />  
-        <Vid /> 
+        
         
         <ProductTop /> 
         <Catslider /> 

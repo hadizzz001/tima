@@ -24,12 +24,7 @@ export default function OfferHeadline() {
         slidesPerView={1}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-      >
-        <SwiperSlide>
-          <div style={{ textAlign: "center" }}>
-            Worldwide shipping!
-          </div>
-        </SwiperSlide>
+      > 
         <SwiperSlide>
           <div style={{ textAlign: "center" }}>
             Free Shipping on all orders above $50

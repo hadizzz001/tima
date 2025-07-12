@@ -62,7 +62,7 @@ const fetchCategories = async () => {
                                     <button
                                     id='mybbtn' 
                                     className='myBB' 
-                                    onClick={() => router.push("/search?cat=yes")}
+                                    onClick={() => router.push("/shop")}
                                     >
                                         Shop All
                                     </button>

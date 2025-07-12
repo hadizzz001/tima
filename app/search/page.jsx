@@ -130,13 +130,49 @@ const Body = () => {
                       className="br_grid br_grid-cols-1 supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid]"
                     >
                       <a href={`/product?id=${item._id}&&imgg=${item.img[0]}`}  >
-                        <div
-                          className={`image-container `}
-                        >
+<div
+  style={{
+    position: "relative",
+    width: "100%",
+    maxWidth: "250px",
+    aspectRatio: "1 / 1",
+    overflow: "hidden",
+    margin: "0 auto",
+  }}
+>
+  {parseInt(item.stock) === 0 && (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        backgroundColor: "rgba(75, 75, 75, 0.7)",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "18px",
+        fontWeight: "bold",
+        zIndex: 10,
+      }}
+    >
+      Out of Stock
+    </div>
+  )}
+  <img
+    src={item.img[0]}
+    alt="Default"
+    style={{
+      width: "100%",
+      height: "166.66%",
+      objectFit: "cover",
+      transform: "translateY(-40%)",
+      border: "none",
+      borderRadius: "0",
+      display: "block",
+    }}
+  />
+</div>
 
-                          <img className="default-img" src={item.img[0]} alt="Default" />
-
-                        </div>
 
                         <div className="Layout br_contents">
                           <span className="br_contents br_edition-">
@@ -151,9 +187,7 @@ const Body = () => {
                                     className="br_text-current br_no-underline"
                                     id="anchorNew"
                                   >
-                                    {item.title}
-                                    <br />
-                                    {item.category}
+                                    {item.title} 
                                     <span
                                       className="br_absolute br_inset-0 br_z-10"
                                       aria-hidden="true"

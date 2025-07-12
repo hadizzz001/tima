@@ -280,52 +280,128 @@ const Body = () => {
                       className="br_grid br_grid-cols-1 supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid]"
                     >
                       <a href={`/product?id=${item._id}&&imgg=${item.img[0]}`}  >
-                      <div
-                        className={`image-container `}
-                      >
-                        {parseInt(item.stock) === 0 && (
-                          <div className="absolute inset-0 bg-gray-600 bg-opacity-70 text-white flex items-center justify-center text-lg font-bold z-10">
-                            Out of Stock
-                          </div>
-                        )}
-                        {/* Default Image */}
-                        <img className="default-img" src={item.img[0]} alt="Default" />
 
-                      </div>
 
-                      <div className="Layout br_contents">
-                        <span className="br_contents br_edition-">
-                          <div className="br_grid br_grid-cols-1 br_grid-rows-[auto_auto_1fr_auto] supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid] initial:br_text-white apex:br_bg-[#4e4e4e] apex:br_text-white br_gap-2 br_pb-3 br_group/tile br_relative">
-                            <div
-                              style={{ textAlign: "center" }}
-                              className="initial:br_row-span-1 br_col-start-1 br_row-start-2 br_px-3 group-[.centered]/tile:br_justify-center group-[.centered]/tile:br_text-center"
-                            >
-                              <h3 className="myNewC br_text-base-sans-spaced br_line-clamp-2 sm:br_line-clamp-none edition:br_text-grey-500 edition:br_hidden first:edition:br_inline edition:before:br_content-['_–_'] apex:edition:br_text-grey-300">
-                                <a
-                                  href={`/product?id=${item._id}&&imgg=${item.img[0]}`}
-                                  className="br_text-current br_no-underline"
-                                  id="anchorNew"
-                                >
-                                  {item.title}
-                                  <br />
-                                  {item.category}
-                                  <span
-                                    className="br_absolute br_inset-0 br_z-10"
-                                    aria-hidden="true"
-                                  />
-                                </a>
-                              </h3>
-                              <div className="price-container br_inline-flex br_flex-wrap br_gap-x-2 br_items-baseline apex:br_text-white group-[.centered]/tile:br_justify-center">
-                                <span className="old-price br_text-gray-500 br_line-through myBB">
-                                  ${item.price}
-                                </span>
-                                <span className="new-price myBB">${item.discount}</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  style={{
+    position: "relative",
+    width: "100%",
+    maxWidth: "250px",
+    aspectRatio: "1 / 1",
+    overflow: "hidden",
+    margin: "0 auto",
+  }}
+>
+  {parseInt(item.stock) === 0 && (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        backgroundColor: "rgba(75, 75, 75, 0.7)",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "18px",
+        fontWeight: "bold",
+        zIndex: 10,
+      }}
+    >
+      Out of Stock
+    </div>
+  )}
+  <img
+    src={item.img[0]}
+    alt="Default"
+    style={{
+      width: "100%",
+      height: "166.66%",
+      objectFit: "cover",
+      transform: "translateY(-40%)",
+      border: "none",
+      borderRadius: "0",
+      display: "block",
+    }}
+  />
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div className="Layout br_contents">
+                          <span className="br_contents br_edition-">
+                            <div className="br_grid br_grid-cols-1 br_grid-rows-[auto_auto_1fr_auto] supports-subgrid:br_row-span-4 supports-subgrid:br_grid-rows-[subgrid] initial:br_text-white apex:br_bg-[#4e4e4e] apex:br_text-white br_gap-2 br_pb-3 br_group/tile br_relative">
+                              <div
+                                style={{ textAlign: "center" }}
+                                className="initial:br_row-span-1 br_col-start-1 br_row-start-2 br_px-3 group-[.centered]/tile:br_justify-center group-[.centered]/tile:br_text-center"
+                              >
+                                <h3 className="myNewC br_text-base-sans-spaced br_line-clamp-2 sm:br_line-clamp-none edition:br_text-grey-500 edition:br_hidden first:edition:br_inline edition:before:br_content-['_–_'] apex:edition:br_text-grey-300">
+                                  <a
+                                    href={`/product?id=${item._id}&&imgg=${item.img[0]}`}
+                                    className="br_text-current br_no-underline"
+                                    id="anchorNew"
+                                  >
+                                    {item.title}
+                                    <span
+                                      className="br_absolute br_inset-0 br_z-10"
+                                      aria-hidden="true"
+                                    />
+                                  </a>
+                                </h3>
+                                <div className="price-container br_inline-flex br_flex-wrap br_gap-x-2 br_items-baseline apex:br_text-white group-[.centered]/tile:br_justify-center">
+                                  <span className="old-price br_text-gray-500 br_line-through myBB">
+                                    ${item.price}
+                                  </span>
+                                  <span className="new-price myBB">${item.discount}</span>
+                                </div>
+                                <br />
                               </div>
-                              <br />
                             </div>
-                          </div>
-                        </span>
-                      </div>
+                          </span>
+                        </div>
                       </a>
                     </div>
                   ))
